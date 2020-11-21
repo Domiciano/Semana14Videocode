@@ -1,20 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Login</title>
+        <title>Cambiar mi password</title>
     </head>
-
     <body>
-        <h3>Login</h3>
-        <p><input id="correo" type="text" placeholder="Correo electrónico"></p>
-        <p><input id="password" type="password" placeholder="Password"></p>
-        <p><button id="loginBtn">Iniciar Sesión</button></p>
-        <p><a href="signup.html">Click si no estas registrado</a></p>
-
-        <a href="forgot.html">Olvidé mi contraseña</a>
-
+        <p>Escriba la nueva contraseña</p>
+        <input id="newPassET" type="text" placeholder="Password">
+        <button id="saveBtn">Guardar</button>
     </body>
-
 </html>
 <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase.js"></script>
 <script>
@@ -33,4 +26,4 @@
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
 </script>
-<script src="js/login.js"></script>
+<script src="js/changepass.js"></script>

@@ -27,7 +27,17 @@ auth.onAuthStateChanged(
                 };
                 database.ref('semana14/users/'+userDB.id).set(userDB).then(
                     ()=>{
-                        window.location.href = "index.html";        
+                        user.sendEmailVerification().then(
+                            ()=>{
+                                auth.signOut().then(
+                                    ()=>{
+                                        alert('Verifique su correo, revise su bandeja de entrada');
+                                        window.location.href = "login.html";        
+                                    }
+                                )
+                            }
+                        );
+                        ;
                     }
                 );
             }else{
@@ -40,5 +50,13 @@ auth.onAuthStateChanged(
 
 regBtn.addEventListener('click', ()=>{
     isSigningUp = true;
-    auth.createUserWithEmailAndPassword(correo.value, password.value);
+    auth.createUserWithEmailAndPassword(correo.value, password.value).then(
+        ()=>{
+            console.log('Registro exitoso');
+        }
+    ).catch(
+        (error)=>{
+            alert(error);
+        }
+    );
 });

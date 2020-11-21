@@ -9,7 +9,15 @@ const loginBtn = document.getElementById('loginBtn');
 auth.onAuthStateChanged(
     (user)=>{
         if(user !== null){
-            window.location.href = "index.html";
+            if(user.emailVerified){
+                window.location.href = "index.html";
+            }else{
+                auth.signOut().then(
+                    ()=>{
+                        alert('Primero debe verificar su cuenta');
+                    }
+                );
+            }
         }      
     }
 );
@@ -18,12 +26,11 @@ auth.onAuthStateChanged(
 loginBtn.addEventListener('click', ()=>{
     auth.signInWithEmailAndPassword(correo.value, password.value).then(
         (data)=>{
-            window.location.href = 'index.html';
+            console.log('Login ok');
         }
     ).catch(
         (error)=>{
             alert(error.message);
-            console.log(error);
         }
     );
 });

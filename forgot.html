@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Login</title>
+        <title>Olvide mi contraseña</title>
     </head>
-
     <body>
-        <h3>Login</h3>
-        <p><input id="correo" type="text" placeholder="Correo electrónico"></p>
-        <p><input id="password" type="password" placeholder="Password"></p>
-        <p><button id="loginBtn">Iniciar Sesión</button></p>
-        <p><a href="signup.html">Click si no estas registrado</a></p>
 
-        <a href="forgot.html">Olvidé mi contraseña</a>
+        <p>Escriba el correo</p>
+        <input id="emailET" type="text" placeholder="Email">
+        <button id="sendBtn">Enviar</button>
 
     </body>
-
 </html>
 <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase.js"></script>
 <script>
@@ -33,4 +28,4 @@
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
 </script>
-<script src="js/login.js"></script>
+<script src="js/forgot.js"></script>
